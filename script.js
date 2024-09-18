@@ -5,29 +5,17 @@ const caixaResultado = document.querySelector('.caixa-resultado');
 
 const perguntas = [ //serve para abrir lista de perguntas
     {//abre o objeto das perguntas
-        enunciado: "Você utiliza a inteligência artificial no seu dia a dia?",
-        alternativas: ["Sim","Não"]
+        enunciado: "Pergunta 1",
+        alternativas: ["Alternativa 1","Alternativa 2"]
     },
     {
-        enunciado: "Você acha que a IA pode ajudar você no seu trabalho?",
-        alternativas: ["sim","Não"]
+        enunciado: "Pergunta 2",
+        alternativas: ["Alternativa 1","Alternativa 2"]
     },
     {
-        enunciado: "Você acha que a IA pode prejudicar as pessoas de alguma forma?",
-        alternativas: ["Sim","Não"]
-    },
-    {
-        enunciado: "Como você descobriu sobre a IA?",
-        alternativas: ["Redes Sociais","Na escola"]
-    },
-    {
-        enunciado: "Você acha que a IA pode mais atrapalhar o aprendizado das criaças no futuro, do que ajudar?",
-        alternativas: ["Sim","Não"]
-    },
-    {
-        enunciado: "Você gosta de utilizar Inteligencias Artificial?",
-        alternativas: ["Sim","Não"]
-    },
+        enunciado: "Pergunta 3",
+        alternativas: ["Alternativa 1","Alternativa 2"]
+    }
 ]
 
 let posicao = 0;
@@ -39,6 +27,12 @@ function mostraPergunta(){
     mostraAlternativas();
 }
 function mostraAlternativas(){
-
+        for (const alternativa of perguntaAtual.alternativas) {
+            const botaoAlternativas = document.createElement("button");
+            botaoAlternativas.textContent = alternativa;
+            caixaAlternativas.appendChild(botaoAlternativas);
+        }
+    
 }
+
 mostraPergunta();
