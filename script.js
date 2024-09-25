@@ -5,17 +5,17 @@ const caixaResultado = document.querySelector('.caixa-resultado');
 
 const perguntas = [ //serve para abrir lista de perguntas
     {//abre o objeto das perguntas
-        enunciado: "Pergunta 1",
-        alternativas: ["Alternativa 1","Alternativa 2"]
+        enunciado: "Você utiliza a IA no seu dia a dia?",
+        alternativas: [{texto: "sim", afirmação:"afirmação da alternativa"},{texto: "não", afirmação:"afirmação da alternativa"}]
     },
     {
-        enunciado: "Pergunta 2",
-        alternativas: ["Alternativa 1","Alternativa 2"]
+        enunciado: "Você acha que a IA pode  ajudar no seu trabalho?",
+        alternativas: [{texto: "Sim", afirmação:"afirmação da alternativa"},{texto: "Não", afirmação:"afirmação da alternativa"}]
     },
     {
         enunciado: "Pergunta 3",
-        alternativas: ["Alternativa 1","Alternativa 2"]
-    }
+        alternativas: [{texto: "Sim", afirmação:"afirmação da alternativa"},{texto: "Não, afirmação:"afirmação da alternativa"}]
+    },
 ]
 
 let posicao = 0;
