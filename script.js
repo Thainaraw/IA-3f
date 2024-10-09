@@ -23,8 +23,13 @@ let perguntaAtual;
 let historiaFinal = "";
 
 function mostraPergunta(){
+    if (posicao >= perguntas.length){
+        mostraResultado();
+        return;
+    }
     perguntaAtual = perguntas[posicao];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = " ";
     mostraAlternativas();
 }
 function mostraAlternativas(){
@@ -42,6 +47,9 @@ function respostaSelecionada(opcaoSelecionada){
     historiaFinal = afirmacoes;
     posicao++
     mostraPergunta();
+}
+function mostraResultado{
+    
 }
 
 mostraPergunta();
