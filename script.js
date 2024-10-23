@@ -2,34 +2,20 @@ const caixaPrincipal = document.querySelector('.caixa-principal');
 const caixaPerguntas = document.querySelector('.caixa-perguntas');
 const caixaAlternativas = document.querySelector('.caixa-alternativas');
 const caixaResultado = document.querySelector('.caixa-resultado');
+const textoResultado = document.querySelector('.texto-resultado')
 
-const perguntas = [     //serve para abrir lista de perguntas
-    {   //abre o objeto das perguntas
-        enunciado: "Você acha que IA vai dominar o mundo?",
-        alternativas: [
-            {texto: "Sim",
-            afirmação:"A IA vai dominar o mundo"}, 
-
-            {texto: "Não",
-            afirmação:"A IA não dominará o mundo"}]
+const perguntas = [ //serve para abrir lista de perguntas
+    {//abre o objeto das perguntas
+        enunciado: "Você gosta de estudar?",
+        alternativas: [{texto: "sim", afirmação:"Sim, eu gosto de estudar"},{texto: "não", afirmação:"Não, eu não gosto de estudar"}]
     },
-    { 
-        enunciado: "A IA vai substituir os professores?",
-        alternativas: [
-            {texto: "Sim",
-            afirmação:"A IA logo tomará o lugar dos professores"}, 
-                
-            {texto: "Não",
-            afirmação:"A IA jamais tomará o lugar dos professores"}]
+    {
+        enunciado: "Você acha que a educação muda vidas?",
+        alternativas: [{texto: "Sim", afirmação:"Sim, eu acredito no poder da educação"},{texto: "Não", afirmação:"Não, eu não acredito no poder da educação"}]
     },
-    { 
-        enunciado: "A IA está pronta para todos?",
-        alternativas: [
-            {texto: "Sim",
-            afirmação:"Sim, a IA será útil e está pronta para todos"}, 
-                
-            {texto: "Não",
-            afirmação:"Não, a IA não é para o uso de todos"}]
+    {
+        enunciado: "Você já decidiu no que gostaria de trabalhar",
+        alternativas: [{texto: "Sim", afirmação:"Sim, ja estou me especializando para"}, {texto: "Não", afirmação:"Não, ainda estou decidindo"}]
     },
 ]
 
@@ -48,23 +34,25 @@ function mostraPergunta(){
     mostraAlternativas();
 }
 function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativas){
-        const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
-        caixaAlternativas.appendChild(botaoAlternativas);
-    }
+        for (const alternativa of perguntaAtual.alternativas) {
+            const botaoAlternativas = document.createElement("button");
+            botaoAlternativas.textContent = alternativa.texto;
+            botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+            caixaAlternativas.appendChild(botaoAlternativas);
+        }
+    
 }
+
 function respostaSelecionada(opcaoSelecionada){
     const afirmacoes = opcaoSelecionada.afirmação;
-    historiaFinal += afirmacoes + " ";
-    posicao++;
+    historiaFinal = afirmacoes ;
+    posicao++
     mostraPergunta();
 }
-function mostraResultado(){
-    caixaPerguntas.textContent = "Num futuro próximo...";
-    textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = "";
+function mostraResultado(){caixaPerguntas.textContent = "Num futuro próximo...";
+textoResultado.textContent = historiaFinal;
+caixaAlternativas.textContent = "Vou ser rico grças a educação ";
 }
 
 mostraPergunta();
+
